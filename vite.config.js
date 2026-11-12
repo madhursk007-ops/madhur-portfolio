@@ -1,3 +1,2 @@
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-export default defineConfig({plugins:[react()],base:'/madhur-portfolio/'});
+export default defineConfig({base:'/madhur-portfolio/'});
