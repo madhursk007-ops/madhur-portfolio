@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Madhur Khadabadi — developer portfolio"><title>Madhur Khadabadi | Portfolio</title><link rel="stylesheet" href="style.css?v=3"><style id="portfolio-theme-inline">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Madhur Khadabadi — developer portfolio"><title>Madhur Khadabadi | Portfolio</title><link rel="stylesheet" href="style.css?v=4"><style id="portfolio-theme-inline">
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
 :root{--bg:#f5f3ec;--panel:#fffefa;--text:#252b22;--muted:#72786b;--mint:#71866a;--line:#dfe2d6;--olive:#465a42;--cream:#e9eadf}
 *{box-sizing:border-box}
@@ -46,6 +46,20 @@ footer a{color:var(--olive);font-weight:700}
 @media(max-width:520px){.cards,.projects{grid-template-columns:1fr}.timeline article{grid-template-columns:1fr;gap:5px}.hero h1{font-size:49px;letter-spacing:-1.8px}.intro{font-size:15px}.contact{padding:75px 22px!important}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
 
+
+/* Motion layer */
+@keyframes riseIn{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+@keyframes softFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes pulseRing{0%,100%{opacity:.45;transform:scale(.96)}50%{opacity:.9;transform:scale(1.04)}}
+.hero .eyebrow,.hero h1,.hero .intro,.hero .btn,.hero .meta{opacity:0;animation:riseIn .8s ease forwards}
+.hero .eyebrow{animation-delay:.12s}.hero h1{animation-delay:.25s}.hero .intro{animation-delay:.4s}.hero .btn{animation-delay:.55s}.hero .meta{animation-delay:.68s}
+.hero:after{animation:pulseRing 6s ease-in-out infinite}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.cards article{will-change:transform}
+.cards article:nth-child(2){transition-delay:.06s}.cards article:nth-child(3){transition-delay:.12s}
+::selection{background:#cbd7c2;color:#263322}
+@media(prefers-reduced-motion:reduce){.hero .eyebrow,.hero h1,.hero .intro,.hero .btn,.hero .meta{opacity:1;animation:none}.hero:after{animation:none}.reveal{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body><header><a class="logo" href="#home">MK<span>.</span></a><button id="menu" aria-label="Toggle menu">☰</button><nav id="nav"><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a></nav></header>
