@@ -1,12 +1,17 @@
 # Madhur Khadabadi — Portfolio
 
-Responsive personal portfolio built with HTML, CSS and JavaScript.
+React-powered personal portfolio built with React, JavaScript and Vite.
 
-## Run locally
-Open `index.html` in a browser.
+## Local development
+```bash
+npm install
+npm run dev
+```
 
-## Publish with GitHub Pages
-1. Open repository **Settings → Pages**.
-2. Under **Build and deployment**, choose **Deploy from a branch**.
-3. Select branch **main** and folder **/(root)**, then Save.
-4. Wait for the published URL to appear on the Pages settings screen.
+## Production build
+```bash
+npm run build
+npm run preview
+```
+
+GitHub Actions builds the site and deploys the `dist` folder to GitHub Pages on pushes to `main`. In **Settings → Pages**, set the build and deployment source to **GitHub Actions**.
