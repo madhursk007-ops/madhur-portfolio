@@ -43,3 +43,17 @@ footer a{color:var(--olive);font-weight:700}
 @media(max-width:750px){header{padding:16px 22px}#menu{display:block}nav{display:none;position:absolute;right:18px;top:68px;background:var(--panel);border:1px solid var(--line);border-radius:5px;padding:20px;flex-direction:column;gap:15px;min-width:180px;box-shadow:0 15px 40px rgba(0,0,0,.08)}nav.open{display:flex}.cards{grid-template-columns:1fr 1fr}.hero,main section{padding:75px 23px}.hero{min-height:570px}.hero:after{width:125px;height:125px;right:8%;top:17%}}
 @media(max-width:520px){.cards,.projects{grid-template-columns:1fr}.timeline article{grid-template-columns:1fr;gap:5px}.hero h1{font-size:49px;letter-spacing:-1.8px}.intro{font-size:15px}.contact{padding:75px 22px!important}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+
+/* Motion layer */
+@keyframes riseIn{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+@keyframes softFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes pulseRing{0%,100%{opacity:.45;transform:scale(.96)}50%{opacity:.9;transform:scale(1.04)}}
+.hero .eyebrow,.hero h1,.hero .intro,.hero .btn,.hero .meta{opacity:0;animation:riseIn .8s ease forwards}
+.hero .eyebrow{animation-delay:.12s}.hero h1{animation-delay:.25s}.hero .intro{animation-delay:.4s}.hero .btn{animation-delay:.55s}.hero .meta{animation-delay:.68s}
+.hero:after{animation:pulseRing 6s ease-in-out infinite}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.cards article{will-change:transform}
+.cards article:nth-child(2){transition-delay:.06s}.cards article:nth-child(3){transition-delay:.12s}
+::selection{background:#cbd7c2;color:#263322}
+@media(prefers-reduced-motion:reduce){.hero .eyebrow,.hero h1,.hero .intro,.hero .btn,.hero .meta{opacity:1;animation:none}.hero:after{animation:none}.reveal{opacity:1;transform:none;transition:none}}
