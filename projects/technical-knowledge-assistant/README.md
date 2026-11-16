@@ -1,6 +1,6 @@
-# Technical Knowledge Assistant
+# KnowledgeDesk — Technical Knowledge Assistant
 
-A document-grounded Q&A application with a browser interface and FastAPI backend. Upload technical notes, index their text into overlapping passages, ask questions, and inspect the source excerpts returned by the retriever.
+KnowledgeDesk is a document-grounded Q&A workspace with a browser interface and FastAPI backend. Upload technical notes, index their text into overlapping passages, ask questions, and inspect the source excerpts returned by the retriever.
 
 ## Live demo
 
