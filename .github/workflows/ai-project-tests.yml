@@ -6,11 +6,13 @@ on:
     paths:
       - "projects/industrial-diagnostics-assistant/**"
       - "projects/technical-knowledge-assistant/**"
+      - "projects/vehicle-value-intelligence/**"
       - ".github/workflows/ai-project-tests.yml"
   pull_request:
     paths:
       - "projects/industrial-diagnostics-assistant/**"
       - "projects/technical-knowledge-assistant/**"
+      - "projects/vehicle-value-intelligence/**"
       - ".github/workflows/ai-project-tests.yml"
   workflow_dispatch:
 
@@ -23,6 +25,7 @@ jobs:
         project:
           - projects/industrial-diagnostics-assistant
           - projects/technical-knowledge-assistant
+          - projects/vehicle-value-intelligence
     defaults:
       run:
         working-directory: ${{ matrix.project }}
@@ -36,4 +39,4 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       - name: Run tests
-        run: pytest -q
+        run: PYTHONPATH=. pytest -q
