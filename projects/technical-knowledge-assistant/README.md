@@ -1,16 +1,23 @@
 # Technical Knowledge Assistant
 
-A document-grounded Q&A API. It accepts text documents, splits them into overlapping passages, retrieves relevant passages for a question, and can optionally use an LLM to write an answer constrained to those passages.
+A document-grounded Q&A application with a browser interface and FastAPI backend. Upload technical notes, index their text into overlapping passages, ask questions, and inspect the source excerpts returned by the retriever.
+
+## Live demo
+
+https://technical-knowledge-assistant.onrender.com
 
 ## What is implemented
 
-- Document ingestion with SQLite persistence.
-- Overlapping text chunking.
-- Transparent lexical retrieval baseline with relevance scores.
-- Source title, chunk number and excerpt returned with every answer.
-- Optional OpenAI Responses API generation.
-- Honest retrieval-only mode when no API key is configured.
-- Tests for chunking and retrieval.
+- Browser-based Knowledge Desk served by FastAPI.
+- Upload UTF-8 `.txt` and `.md` files (maximum 200 KB each).
+- Paste text directly into the library.
+- SQLite-backed passage indexing and document listing.
+- Replace a document by uploading or adding text with the same title.
+- Delete indexed documents from the library.
+- Ask questions and inspect source title, chunk number, excerpt, and relevance score.
+- Optional OpenAI Responses API generation when `OPENAI_API_KEY` is configured.
+- Explicit retrieval-only mode when no API key is configured.
+- API documentation at `/docs`.
 
 ## Run locally
 
@@ -24,29 +31,27 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 
-Open http://127.0.0.1:8000/docs.
+Open http://127.0.0.1:8000 for the web interface or http://127.0.0.1:8000/docs for the API docs.
 
-## Try it
+## How to use
 
-First add a document using `POST /documents`:
+1. Upload a UTF-8 `.txt` or `.md` file, or paste at least 40 characters of notes.
+2. Check that the document appears in Your library.
+3. Enter a question in Research assistant.
+4. Review the response and the supporting passages, including their document names and chunk numbers.
+5. Remove documents from the library when they are no longer needed.
 
-```json
-{
-  "title": "Motor Maintenance Notes",
-  "text": "A motor bearing should be inspected when vibration increases. Misalignment and worn bearings are common causes of elevated vibration. Record vibration readings during routine maintenance and compare them with the equipment baseline."
-}
-```
+The JSON API is also available:
 
-Then ask a question using `POST /ask`:
+- `POST /documents` — ingest a title and text.
+- `POST /documents/upload` — upload a text or Markdown file.
+- `GET /documents` — list indexed documents.
+- `DELETE /documents/{source}` — remove a document.
+- `POST /ask` — retrieve relevant passages and return an answer.
 
-```json
-{
-  "question": "What can cause elevated motor vibration?",
-  "limit": 3
-}
-```
+## Optional generated answers
 
-The response includes the answer mode and the retrieved source passages. To enable generated answers, copy `.env.example` to `.env`, set `OPENAI_API_KEY`, and export the variables in your shell before starting the API. Never commit a real API key.
+Copy `.env.example` to `.env` and set `OPENAI_API_KEY` and optionally `OPENAI_MODEL`. Never commit a real API key. Without a key, the app clearly labels its output as a retrieval-only preview rather than pretending a language model generated it.
 
 ## Tests
 
@@ -56,14 +61,8 @@ pytest -q
 
 ## Engineering decisions and limitations
 
-The initial retriever uses lexical term overlap. It is intentionally easy to inspect and provides a baseline for later evaluation against embeddings or hybrid search. It is not semantic vector search. The optional generation step is constrained to retrieved excerpts, but LLM output still needs evaluation and can make mistakes. For production use, add authentication, document-level access controls, file parsing, rate limits, robust provider error handling, retrieval evaluation and audit logging.
+The initial retriever uses lexical term overlap. It is intentionally inspectable and provides a baseline for later evaluation against embeddings or hybrid search; it is not semantic vector search. The optional generation step is instructed to use only retrieved excerpts, but LLM output still needs evaluation and can make mistakes.
 
-## API routes
+Only UTF-8 TXT and Markdown uploads are supported; PDF and DOCX parsing are not implemented. The SQLite database uses the `KNOWLEDGE_DB` environment variable or a local `knowledge.db` file. On a hosting platform with an ephemeral filesystem, indexed documents may be lost when the instance is replaced or restarted; configure a persistent disk and set `KNOWLEDGE_DB` to its mounted path for durable hosted storage.
 
-| Method | Route | Purpose |
-|---|---|---|
-| GET | `/` | Service overview |
-| GET | `/health` | Health check |
-| POST | `/documents` | Ingest a text document |
-| GET | `/documents` | List indexed document titles |
-| POST | `/ask` | Retrieve passages and answer a question |
+For production use, add authentication, document-level access controls, rate limits, retrieval evaluation, audit logging, and a persistent storage strategy.
