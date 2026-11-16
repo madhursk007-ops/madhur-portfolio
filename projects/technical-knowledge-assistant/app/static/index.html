@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="Upload technical notes and ask questions grounded in your own documents.">
+  <title>Knowledge Desk — Technical Knowledge Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar"><a class="brand" href="/"><span class="brand-mark">K</span><span>KNOWLEDGE<span class="brand-light">DESK</span></span></a><div class="status"><span class="pulse"></span> LOCAL KNOWLEDGE SPACE</div></header>
+    <main>
+      <section class="hero"><div class="eyebrow">YOUR DOCUMENTS. YOUR ANSWERS.</div><h1>Make your technical<br><span>knowledge searchable.</span></h1><p>Upload notes, manuals, and Markdown files. Ask a question and trace the answer back to the passages that support it.</p></section>
+      <section class="workspace">
+        <aside class="panel library">
+          <div class="panel-head"><div><div class="eyebrow">01 / KNOWLEDGE BASE</div><h2>Your library</h2></div><span class="count" id="doc-count">0</span></div>
+          <label class="dropzone" id="dropzone" for="file-input"><span class="upload-icon">↑</span><strong>Drop a file here</strong><span>or <u>browse files</u></span><small>TXT or Markdown · up to 200 KB</small><input id="file-input" type="file" accept=".txt,.md,text/plain,text/markdown"></label>
+          <div class="or">OR ADD TEXT DIRECTLY</div>
+          <form id="paste-form" class="paste-form"><input id="doc-title" maxlength="160" placeholder="Document title" required><textarea id="doc-text" minlength="40" maxlength="50000" placeholder="Paste technical notes here (at least 40 characters)..." required></textarea><button class="button secondary" type="submit">Add to library <span>↗</span></button></form>
+          <div class="library-list-head"><span>INDEXED DOCUMENTS</span><button id="refresh" class="icon-button" title="Refresh library" aria-label="Refresh library">↻</button></div>
+          <div id="documents" class="documents"><div class="empty-small">Your uploaded documents will appear here.</div></div>
+        </aside>
+        <section class="panel assistant">
+          <div class="panel-head"><div><div class="eyebrow">02 / ASK YOUR KNOWLEDGE</div><h2>Research assistant</h2></div><span class="ai-tag">SOURCE-AWARE</span></div>
+          <div class="chat-intro"><div class="bot-avatar">✳</div><div><strong>What would you like to understand?</strong><p>I'll search your indexed documents and show the passages I used.</p></div></div>
+          <form id="ask-form" class="ask-form"><label for="question">YOUR QUESTION</label><textarea id="question" maxlength="1000" placeholder="e.g. What are the common causes of elevated motor vibration?" required></textarea><div class="ask-bottom"><span>Answers are grounded in your uploaded content.</span><button class="button primary" type="submit">Find answer <span>→</span></button></div></form>
+          <div id="answer-area" class="answer-area"><div class="answer-placeholder"><span>✧</span><p>Your answer and source references will appear here.</p></div></div>
+        </section>
+      </section>
+      <footer><span>TECHNICAL KNOWLEDGE ASSISTANT <b>·</b> BUILT WITH FASTAPI + SQLITE</span><a href="/docs">API DOCUMENTATION ↗</a></footer>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="/static/app.js"></script>
+</body></html>
