@@ -18,8 +18,12 @@ GitHub Actions builds the site and deploys the `dist` folder to GitHub Pages on 
 
 ## Featured projects
 
-- **MADHURPLAY — Movie Discovery Platform:** [Live application](https://madhurplay-live.onrender.com) · [Source code](https://github.com/madhursk007-ops/MADHURPLAY)
 - **Clip Connect — Video Editor Marketplace:** [Live application](https://clipconnect-ce56.onrender.com) · [Source code](https://github.com/madhursk007-ops/ClipConnect)
+- **MADHURPLAY — Movie Discovery Platform:** [Live application](https://madhurplay-live.onrender.com) · [Source code](https://github.com/madhursk007-ops/MADHURPLAY)
+- **Industrial Diagnostics Assistant:** [API documentation](https://industrial-diagnostics-assistant.onrender.com/docs) · [Source code](https://github.com/madhursk007-ops/madhur-portfolio/tree/ai-engineering-projects-2026/projects/industrial-diagnostics-assistant)
+- **Technical Knowledge Assistant:** [API documentation](https://technical-knowledge-assistant.onrender.com/docs) · [Source code](https://github.com/madhursk007-ops/madhur-portfolio/tree/ai-engineering-projects-2026/projects/technical-knowledge-assistant)
+- **Vehicle Value Intelligence:** [Live app](https://vehicle-value-intelligence.onrender.com) · [Source code](https://github.com/madhursk007-ops/madhur-portfolio/tree/ai-engineering-projects-2026/projects/vehicle-value-intelligence)
+- **Study Mate:** AI-assisted learning platform concept.
 - **ApplyTrack:** [Live prototype](https://madhursk007-ops.github.io/madhur-portfolio/projects/applytrack/)
 
 ## CV and profiles
