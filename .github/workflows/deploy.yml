@@ -1,28 +1,53 @@
 name: Deploy React portfolio to GitHub Pages
+
 on:
   push:
     branches: [main]
   workflow_dispatch:
+
 permissions:
   contents: read
   pages: write
   id-token: write
+
 concurrency:
   group: pages
   cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm install
-      - run: npm run build
-      - uses: actions/upload-pages-artifact@v3
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build production site
+        run: npm run build
+
+      - name: Verify production output
+        shell: bash
+        run: |
+          test -s dist/index.html
+          if grep -q '/src/main.jsx' dist/index.html; then
+            echo "Build output still points to the uncompiled React source."
+            exit 1
+          fi
+          test -n "$(find dist/assets -maxdepth 1 -type f -name '*.js' -print -quit)"
+          touch dist/.nojekyll
+
+      - name: Upload compiled site
+        uses: actions/upload-pages-artifact@v3
         with:
           path: dist
+
   deploy:
     environment:
       name: github-pages
@@ -30,5 +55,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - id: deployment
+      - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
