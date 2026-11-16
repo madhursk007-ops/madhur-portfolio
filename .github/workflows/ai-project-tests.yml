@@ -2,7 +2,7 @@ name: AI project tests
 
 on:
   push:
-    branches: [ai-engineering-projects-2026]
+    branches: [main, ai-engineering-projects-2026]
     paths:
       - "projects/industrial-diagnostics-assistant/**"
       - "projects/technical-knowledge-assistant/**"
