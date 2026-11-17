@@ -14,16 +14,15 @@ npm run build
 npm run preview
 ```
 
-GitHub Actions builds the site and deploys the `dist` folder to GitHub Pages on pushes to `main`. In **Settings → Pages**, set the build and deployment source to **GitHub Actions**.
+GitHub Actions builds the site and deploys the `dist` folder to GitHub Pages on pushes to `main`.
 
-## Featured projects
+## Featured software engineering projects
 
-- **Clip Connect — Video Editor Marketplace:** [Live application](https://clipconnect-ce56.onrender.com) · [Source code](https://github.com/madhursk007-ops/ClipConnect)
+- **Clip Connect — Client–Video Editor Marketplace:** [Live application](https://clipconnect-ce56.onrender.com) · [Source code](https://github.com/madhursk007-ops/ClipConnect)
+- **KnowledgeDesk — Document-Grounded Technical Q&A:** [Live workspace](https://technical-knowledge-assistant.onrender.com) · [API docs](https://technical-knowledge-assistant.onrender.com/docs) · [Source code](https://github.com/madhursk007-ops/madhur-portfolio/tree/main/projects/technical-knowledge-assistant)
+- **Industrial Diagnostics Assistant — Explainable Sensor API:** [API docs](https://industrial-diagnostics-assistant.onrender.com/docs) · [Source code](https://github.com/madhursk007-ops/madhur-portfolio/tree/ai-engineering-projects-2026/projects/industrial-diagnostics-assistant)
+- **Vehicle Value Intelligence — ML Regression Demo:** [Live app](https://vehicle-value-intelligence.onrender.com) · [Source code](https://github.com/madhursk007-ops/madhur-portfolio/tree/ai-engineering-projects-2026/projects/vehicle-value-intelligence)
 - **MADHURPLAY — Movie Discovery Platform:** [Live application](https://madhurplay-live.onrender.com) · [Source code](https://github.com/madhursk007-ops/MADHURPLAY)
-- **Industrial Diagnostics Assistant:** [API documentation](https://industrial-diagnostics-assistant.onrender.com/docs) · [Source code](https://github.com/madhursk007-ops/madhur-portfolio/tree/ai-engineering-projects-2026/projects/industrial-diagnostics-assistant)
-- **KnowledgeDesk — Technical Knowledge Assistant:** [Open live workspace](https://technical-knowledge-assistant.onrender.com) · [API documentation](https://technical-knowledge-assistant.onrender.com/docs) · [Source code](https://github.com/madhursk007-ops/madhur-portfolio/tree/main/projects/technical-knowledge-assistant)
-- **Vehicle Value Intelligence:** [Live app](https://vehicle-value-intelligence.onrender.com) · [Source code](https://github.com/madhursk007-ops/madhur-portfolio/tree/ai-engineering-projects-2026/projects/vehicle-value-intelligence)
-- **Study Mate:** AI-assisted learning platform concept.
 - **ApplyTrack:** [Live prototype](https://madhursk007-ops.github.io/madhur-portfolio/projects/applytrack/)
 
 ## CV and profiles
