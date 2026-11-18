@@ -24,6 +24,8 @@ GitHub Actions builds the site and deploys the `dist` folder to GitHub Pages on 
 - **Vehicle Value Intelligence — ML Regression Demo:** [Live app](https://vehicle-value-intelligence.onrender.com) · [Source code](https://github.com/madhursk007-ops/madhur-portfolio/tree/ai-engineering-projects-2026/projects/vehicle-value-intelligence)
 - **MADHURPLAY — Movie Discovery Platform:** [Live application](https://madhurplay-live.onrender.com) · [Source code](https://github.com/madhursk007-ops/MADHURPLAY)
 - **ApplyTrack:** [Live prototype](https://madhursk007-ops.github.io/madhur-portfolio/projects/applytrack/)
+- **ServiceFlow — IT Service Desk Workflow:** [Live demo](https://madhursk007-ops.github.io/madhur-portfolio/projects/serviceflow/) · [Source code](https://github.com/madhursk007-ops/madhur-portfolio/tree/main/projects/serviceflow)
+- **OpsBoard — Digital Operations Dashboard:** [Live demo](https://madhursk007-ops.github.io/madhur-portfolio/projects/opsboard/) · [Source code](https://github.com/madhursk007-ops/madhur-portfolio/tree/main/projects/opsboard)
 
 ## CV and profiles
 
