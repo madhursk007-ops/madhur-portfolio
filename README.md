@@ -26,6 +26,7 @@ GitHub Actions builds the site and deploys the `dist` folder to GitHub Pages on 
 - **ApplyTrack:** [Live prototype](https://madhursk007-ops.github.io/madhur-portfolio/projects/applytrack/)
 - **ServiceFlow — IT Service Desk Workflow:** [Live demo](https://madhursk007-ops.github.io/madhur-portfolio/projects/serviceflow/) · [Source code](https://github.com/madhursk007-ops/madhur-portfolio/tree/main/projects/serviceflow)
 - **OpsBoard — Digital Operations Dashboard:** [Live demo](https://madhursk007-ops.github.io/madhur-portfolio/projects/opsboard/) · [Source code](https://github.com/madhursk007-ops/madhur-portfolio/tree/main/projects/opsboard)
+- **WorkSuite — Enterprise Digital Workspace:** [Live demo](https://madhursk007-ops.github.io/madhur-portfolio/projects/worksuite/) · [Source code](https://github.com/madhursk007-ops/madhur-portfolio/tree/main/projects/worksuite)
 
 ## CV and profiles
 
