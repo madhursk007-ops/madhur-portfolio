@@ -41,6 +41,8 @@ jobs:
             exit 1
           fi
           test -n "$(find dist/assets -maxdepth 1 -type f -name '*.js' -print -quit)"
+          # Publish standalone HTML demos alongside the Vite-built React app.
+          if [ -d projects ]; then cp -R projects dist/projects; fi
           touch dist/.nojekyll
 
       - name: Upload compiled site
