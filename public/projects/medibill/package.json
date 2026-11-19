@@ -1,0 +1,40 @@
+{
+  "name": "medibill-pharmacy-suite",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MediBill Pharmacy Management Desktop App",
+  "main": "main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "build:win": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^34.0.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "in.medibill.pharmacy",
+    "productName": "MediBill",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "index.html",
+      "manifest.json",
+      "sw.js",
+      "main.cjs",
+      "preload.cjs",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "artifactName": "MediBill-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
