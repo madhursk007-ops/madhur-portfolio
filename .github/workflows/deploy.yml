@@ -43,6 +43,8 @@ jobs:
           test -n "$(find dist/assets -maxdepth 1 -type f -name '*.js' -print -quit)"
           # Publish standalone HTML demos alongside the Vite-built React app.
           if [ -d projects ]; then cp -R projects dist/projects; fi
+          # Publish standalone demos stored under public/projects as well.
+          if [ -d public/projects ]; then mkdir -p dist/projects; cp -R public/projects/. dist/projects/; fi
           touch dist/.nojekyll
 
       - name: Upload compiled site
