@@ -1,0 +1,10 @@
+{
+  "name": "MediBill Pharmacy Suite",
+  "short_name": "MediBill",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f3f7f8",
+  "theme_color": "#102437",
+  "description": "Pharmacy billing, inventory, purchase and reporting."
+}
