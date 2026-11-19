@@ -7,6 +7,68 @@
 @media(max-width:1000px){.app{grid-template-columns:205px 1fr}.cards{grid-template-columns:repeat(2,1fr)}.content{padding:22px}.topbar{padding:0 22px}.grid2,.bill-layout{grid-template-columns:1fr}}
 @media(max-width:680px){.app{display:block;padding-bottom:68px}.sidebar{display:none}.topbar{height:60px;padding:0 16px}.content{padding:18px 14px}.page-head h1{font-size:21px}.page-head{align-items:center}.cards{gap:9px}.metric{padding:13px}.metric strong{font-size:20px}.metric-top{font-size:10px}.metric-icon{height:28px;width:28px}.bottom-nav{display:flex;position:fixed;bottom:0;left:0;right:0;background:#102437;z-index:10;justify-content:flex-start;gap:2px;overflow-x:auto;scrollbar-width:none;padding:8px 5px calc(8px + env(safe-area-inset-bottom));box-shadow:0 -8px 25px #10243722}.bottom-nav::-webkit-scrollbar{display:none}.bottom-nav button{flex:0 0 62px;min-width:62px}.bottom-nav button{border:0;background:none;color:#a9c0cb;font-size:9px;display:grid;gap:3px;justify-items:center}.bottom-nav button.active{color:#45d7c4}.bottom-nav span{font-size:18px}.form-grid{grid-template-columns:1fr}.form-grid .wide{grid-column:auto}.product-row{grid-template-columns:1.5fr .6fr .7fr 30px}.search{min-width:0;flex:1}.report-grid{grid-template-columns:repeat(2,1fr)}.toolbar{width:100%}.page-head .btn{padding:9px;font-size:11px}}
 @media print{.sidebar,.topbar,.bottom-nav,.page-head,.no-print{display:none!important}.app{display:block}.content{padding:0}.panel{box-shadow:none;border:0}.invoice-print{display:block!important}}
+
+/* MediBill visual refresh — premium pharmacy SaaS */
+:root{--navy:#101d35;--navy2:#172b4d;--teal:#0ea88f;--teal2:#dcf8ef;--bg:#f4f7fb;--ink:#17243b;--muted:#75839a;--line:#e5eaf2;--white:#fff;--red:#e05260;--amber:#d18b27;--shadow:0 12px 32px rgba(24,42,75,.055)}
+body{background:radial-gradient(ellipse at 85% 0%,rgba(20,184,166,.07),transparent 32%),#f4f7fb;color:var(--ink);font-family:'DM Sans',Inter,system-ui,sans-serif;letter-spacing:-.1px}
+.app{grid-template-columns:258px minmax(0,1fr)}
+.sidebar{background:linear-gradient(165deg,#101d35 0%,#142b49 58%,#0e3c48 100%);padding:27px 17px;gap:32px;position:relative;overflow:hidden}
+.sidebar:before{content:"";position:absolute;width:260px;height:260px;border-radius:50%;right:-160px;top:140px;background:rgba(24,196,170,.12);filter:blur(4px);pointer-events:none}
+.logo{position:relative;padding:0 9px}.logo-mark{height:43px;width:43px;border-radius:14px;background:linear-gradient(145deg,#38e0bd,#079b91);box-shadow:0 9px 24px #0ab79a44;font-size:24px}
+.logo b{font-size:21px;letter-spacing:-1px}.logo small{color:#9bb9c8;font-size:9px;letter-spacing:1.7px}
+.nav-label{font-size:9px;color:#7895aa;letter-spacing:2px;margin:8px 0 10px}
+.nav{gap:6px}.nav button{position:relative;padding:12px 13px;border-radius:12px;color:#b7c8d9;font-size:12px;transition:background .2s,transform .2s,color .2s}
+.nav button:hover{background:#ffffff12;color:#fff;transform:translateX(2px)}
+.nav button.active{background:linear-gradient(100deg,rgba(28,202,171,.2),rgba(255,255,255,.055));color:#fff;box-shadow:inset 3px 0 #3be0c0,0 5px 16px #07182a22}
+.nav .ico{width:22px;font-size:17px;color:#69d8c4}
+.side-foot{border-top:1px solid #ffffff18;color:#b6c9d4;font-size:11px}
+.main{min-width:0}.topbar{height:72px;background:rgba(255,255,255,.88);backdrop-filter:blur(16px);border-bottom:1px solid #e6ebf2;padding:0 34px;box-shadow:0 4px 18px #19314a05}
+.crumb{font-size:16px;font-weight:800;letter-spacing:-.45px;color:#17243b}
+.pill{background:#e5f8f2;color:#07856f;padding:8px 12px;border:1px solid #c9f0e4;font-size:10px;letter-spacing:.15px}
+.avatar{background:linear-gradient(145deg,#d8f8ee,#dbeafe);color:#087d70;border:1px solid #c9e9e4}
+.content{padding:31px 34px;max-width:1580px}
+.page-head{align-items:center;margin-bottom:25px}
+.page-head h1{font-size:26px;letter-spacing:-1px;color:#15243b}
+.page-head p{font-size:12px;color:#8290a3;margin-top:5px}
+.page-head>div:first-child:before{content:"PHARMACY WORKSPACE";display:block;color:#0d9d86;font-size:9px;font-weight:800;letter-spacing:1.7px;margin-bottom:8px}
+.btn{border-radius:10px;padding:10px 15px;font-size:12px;transition:transform .18s,box-shadow .18s,background .18s}
+.btn:hover{transform:translateY(-1px)}
+.primary{background:linear-gradient(135deg,#13b99a,#078d83);box-shadow:0 7px 18px #0ba58b35;color:#fff}
+.primary:hover{background:linear-gradient(135deg,#0da98e,#087e78);box-shadow:0 10px 22px #0ba58b45}
+.secondary{background:#fff;border:1px solid #dfe7ef;color:#34465e;box-shadow:0 2px 5px #1c355008}
+.secondary:hover{border-color:#a9ddd2;background:#f7fffc}
+.danger{background:#fff1f2;color:#c53c50;border:1px solid #ffe0e3}
+.cards{gap:16px;margin-bottom:21px}
+.card,.panel{border:1px solid #e6ebf2;border-radius:17px;box-shadow:0 8px 28px rgba(27,49,82,.045);transition:box-shadow .2s,border-color .2s,transform .2s}
+.card:hover,.panel:hover{border-color:#d6e7e6;box-shadow:0 13px 34px rgba(27,49,82,.075)}
+.metric{padding:19px 20px;position:relative;overflow:hidden;background:linear-gradient(145deg,#fff,#fcfdff)}
+.metric:after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;right:-40px;bottom:-50px;background:linear-gradient(135deg,#dff8f1aa,#e6f1ff88)}
+.metric-top{font-size:11px;color:#718198;letter-spacing:.15px}
+.metric-icon{height:36px;width:36px;border-radius:12px;background:linear-gradient(145deg,#e3fbf3,#e8f1ff);color:#078f7b;font-size:17px}
+.metric strong{font-size:25px;letter-spacing:-1px;color:#172942;margin:13px 0 3px}
+.metric small{font-size:10px;color:#8290a2}
+.grid2,.bill-layout{gap:18px}
+.panel{padding:21px;background:rgba(255,255,255,.96)}
+.panel-head{margin-bottom:17px}.panel-head h3,.panel h3{font-size:14px;color:#20334c;letter-spacing:-.25px}
+th{font-size:9px;letter-spacing:1px;color:#8a97a9;padding:12px 11px;background:#f8fafc}
+td{font-size:11px;color:#43536a;padding:13px 11px;border-bottom:1px solid #eef2f6}
+tbody tr:hover{background:#f8fcfb}
+.tag{background:#e5f8f1;color:#0c8a72}.tag.warn{background:#fff5e4;color:#a66c12}.tag.bad{background:#fff0f1;color:#c54254}
+.search,.field input,.field select,.field textarea,.product-row input,.product-row select{border:1px solid #dfe6ef;border-radius:10px;background:#fbfcfe;color:#24364f;padding:11px 12px;transition:border-color .2s,box-shadow .2s,background .2s}
+.search:focus,.field input:focus,.field select:focus,.field textarea:focus{background:#fff;border-color:#43c5ad!important;box-shadow:0 0 0 4px #16b89a15!important}
+.field label{font-size:10px;color:#66788f;letter-spacing:.25px}
+.bar{background:#edf2f7;height:9px}.bar i{background:linear-gradient(90deg,#11b99a,#70dfc7)}
+.notice{border:1px solid #f4e4c4;border-radius:12px;background:#fff8eb;color:#8b6529;font-size:11px}
+.notice.info{border-color:#cdeee7;background:linear-gradient(100deg,#e9fbf5,#eff8ff);color:#356b75}
+.bill-total{color:#087f70;font-size:28px}
+.qr{border-radius:14px;box-shadow:0 8px 22px #1d35500d}
+.modal{border:1px solid #e5ebf2;border-radius:20px;box-shadow:0 30px 90px #07182a55}
+.overlay{backdrop-filter:blur(5px)}
+.bottom-nav{background:linear-gradient(100deg,#101d35,#173c50);border-top:1px solid #ffffff12}
+.bottom-nav button{color:#b6c8d7}.bottom-nav button.active{color:#51e0c4}
+@media(max-width:1000px){.app{grid-template-columns:220px minmax(0,1fr)}.content{padding:23px}}
+@media(max-width:680px){body{background:#f3f6fa}.content{padding:19px 13px 26px}.topbar{height:58px;padding:0 15px}.page-head{align-items:flex-start;margin-bottom:19px}.page-head h1{font-size:22px}.page-head>div:first-child:before{font-size:8px;margin-bottom:6px}.cards{gap:9px}.metric{padding:13px 12px;border-radius:14px}.metric strong{font-size:19px;margin:10px 0 3px}.metric small{font-size:9px}.metric-top{font-size:9px}.metric-icon{height:29px;width:29px;border-radius:10px}.panel{padding:15px;border-radius:15px}.panel-head h3{font-size:13px}.bottom-nav{padding-top:9px;padding-bottom:calc(9px + env(safe-area-inset-bottom))}.bottom-nav button{font-size:8px;flex-basis:62px;min-width:62px}.bottom-nav span{font-size:17px}.btn{font-size:11px;padding:9px 11px}.search{font-size:11px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 </style></head>
 <body><div class="app"><aside class="sidebar"><div class="logo"><div class="logo-mark">✚</div><div><b>MediBill</b><small>PHARMACY SUITE</small></div></div><div><div class="nav-label">WORKSPACE</div><nav class="nav" id="sideNav"></nav></div><div class="side-foot">MediBill Pharmacy Workspace<br><span style="color:#6f909e">Offline-first • Local data storage</span></div></aside>
 <div class="main"><header class="topbar"><div class="crumb" id="crumb">Overview</div><div class="top-right"><span class="pill">● Local workspace</span><div class="avatar">MB</div></div></header><main class="content" id="view"></main></div></div><nav class="bottom-nav" id="bottomNav"></nav><div class="overlay" id="modalOverlay"><div class="modal" id="modal"></div></div>
