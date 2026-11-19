@@ -11,6 +11,16 @@
 <body><div class="app"><aside class="sidebar"><div class="logo"><div class="logo-mark">✚</div><div><b>MediBill</b><small>PHARMACY SUITE</small></div></div><div><div class="nav-label">WORKSPACE</div><nav class="nav" id="sideNav"></nav></div><div class="side-foot">MediBill Pharmacy Workspace<br><span style="color:#6f909e">Offline-first • Local data storage</span></div></aside>
 <div class="main"><header class="topbar"><div class="crumb" id="crumb">Overview</div><div class="top-right"><span class="pill">● Local workspace</span><div class="avatar">MB</div></div></header><main class="content" id="view"></main></div></div><nav class="bottom-nav" id="bottomNav"></nav><div class="overlay" id="modalOverlay"><div class="modal" id="modal"></div></div>
 <script>
+window.addEventListener('error',function(e){
+  var box=document.getElementById('view');
+  if(box)box.innerHTML='<section style="margin:24px;padding:22px;background:#fff;border:1px solid #e3ebee;border-radius:14px;color:#142b3d"><h2>MediBill startup error</h2><p>The application script stopped before the workspace loaded.</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;color:#b42318">'+String(e.message||'Unknown JavaScript error')+'\n'+String(e.filename||'')+':'+String(e.lineno||'')+'</pre><button onclick="location.reload()">Reload</button></section>';
+});
+window.addEventListener('unhandledrejection',function(e){
+  var box=document.getElementById('view');
+  if(box)box.innerHTML='<section style="margin:24px;padding:22px;background:#fff;border:1px solid #e3ebee;border-radius:14px;color:#142b3d"><h2>MediBill startup error</h2><p>Unhandled promise rejection:</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;color:#b42318">'+String(e.reason&&e.reason.stack||e.reason||'Unknown error')+'</pre></section>';
+});
+</script>
+<script>
 const $=s=>document.querySelector(s), money=n=>'₹'+Number(n||0).toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2}), today=()=>new Date().toISOString().slice(0,10);
 const navItems=[['dashboard','▦','Overview'],['billing','▤','Billing'],['inventory','▣','Inventory'],['history','◷','Bill history'],['insights','◈','Insights'],['purchase','⇩','Purchase'],['gst','▤','GST report'],['sales','▥','Sales report'],['settings','⚙','Settings']];
 let state=load();let page='dashboard',cart=[],billCustomer='',billDiscount=0;
@@ -57,4 +67,16 @@ function restore(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();
 $('#settingsForm')?.addEventListener('submit',()=>{});
 function initSettings(){document.addEventListener('submit',e=>{if(e.target.id==='settingsForm'){e.preventDefault();let f=Object.fromEntries(new FormData(e.target));f.gstDefault=+f.gstDefault;state.settings=f;save();alert('Settings saved.');render()}})}
 initSettings();if('serviceWorker'in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{});nav();render();
+</script>
+<script>
+(function(){
+  var view=document.getElementById('view'),side=document.getElementById('sideNav'),bottom=document.getElementById('bottomNav');
+  if(side&&!side.children.length){
+    var items=[['dashboard','▦','Overview'],['billing','▤','Billing'],['inventory','▣','Inventory'],['history','◷','Bill history'],['insights','◈','Insights'],['purchase','⇩','Purchase'],['gst','▤','GST report'],['sales','▥','Sales report'],['settings','⚙','Settings']];
+    side.innerHTML=items.map(function(x){return '<button style="border:0;background:transparent;color:#b7c8d1;text-align:left;padding:12px;display:block;width:100%" onclick="document.getElementById(\'view\').innerHTML=\'<section style=&quot;padding:20px;background:white;border-radius:12px&quot;><h2>\'+\''+x[2]+'\'+\'</h2><p>MediBill navigation fallback is active. The main application script did not initialize.</p></section>\'">'+x[1]+' &nbsp; '+x[2]+'</button>';}).join('');
+  }
+  if(view&&!view.children.length){
+    view.innerHTML='<section style="background:#fff;border:1px solid #e3ebee;border-radius:14px;padding:22px"><h2>MediBill could not initialize</h2><p>The page shell loaded, but its application script did not start. Please send this screen so I can identify the browser error.</p></section>';
+  }
+})();
 </script></body></html>
