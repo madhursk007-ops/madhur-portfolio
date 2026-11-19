@@ -70,13 +70,14 @@ initSettings();if('serviceWorker'in navigator&&location.protocol.startsWith('htt
 </script>
 <script>
 (function(){
-  var view=document.getElementById('view'),side=document.getElementById('sideNav'),bottom=document.getElementById('bottomNav');
+  var view=document.getElementById('view'),side=document.getElementById('sideNav');
   if(side&&!side.children.length){
-    var items=[['dashboard','▦','Overview'],['billing','▤','Billing'],['inventory','▣','Inventory'],['history','◷','Bill history'],['insights','◈','Insights'],['purchase','⇩','Purchase'],['gst','▤','GST report'],['sales','▥','Sales report'],['settings','⚙','Settings']];
-    side.innerHTML=items.map(function(x){return '<button style="border:0;background:transparent;color:#b7c8d1;text-align:left;padding:12px;display:block;width:100%" onclick="document.getElementById(\'view\').innerHTML=\'<section style=&quot;padding:20px;background:white;border-radius:12px&quot;><h2>\'+\''+x[2]+'\'+\'</h2><p>MediBill navigation fallback is active. The main application script did not initialize.</p></section>\'">'+x[1]+' &nbsp; '+x[2]+'</button>';}).join('');
+    side.innerHTML=['Overview','Billing','Inventory','Bill history','Insights','Purchase','GST report','Sales report','Settings'].map(function(label){
+      return '<div style="padding:10px 12px;color:#b7c8d1;font-size:12px">'+label+'</div>';
+    }).join('');
   }
   if(view&&!view.children.length){
-    view.innerHTML='<section style="background:#fff;border:1px solid #e3ebee;border-radius:14px;padding:22px"><h2>MediBill could not initialize</h2><p>The page shell loaded, but its application script did not start. Please send this screen so I can identify the browser error.</p></section>';
+    view.innerHTML='<section style="background:#fff;border:1px solid #e3ebee;border-radius:14px;padding:22px"><h2>MediBill could not initialize</h2><p>The page shell loaded, but the application script did not start. Please share this screen so the startup error can be diagnosed.</p></section>';
   }
 })();
 </script></body></html>
